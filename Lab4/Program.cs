@@ -25,7 +25,16 @@ namespace Psim
 
 			Material silicon = new Material(in dData, in rData);
 
+			Sensor s = new Sensor(1, silicon, 300);
 			Cell c = new Cell(10, 10, silicon, 300);
+
+			Console.WriteLine(c);
+
+			for (int i = 0 ; i < 1000; ++i)
+            {
+				c.AddPhonon(new Phonon(1));
+            }
+			c.TakeMeasurements(1e6, 300);
 
 			Console.WriteLine(c);
 
